@@ -1,29 +1,54 @@
 <html lang="en">
 <head>
     <% include ../helpers/head %>
+    
+    
+    <style>
+    
+
+
+    </style>
+    
 </head>
 
-<body>
+<body class="text-center">
 
   <!-- the classes 'page-header' and 'btn btn-default' create bootstrap components.  -->
   <!-- Check out more components here: http://getbootstrap.com/components/ -->
-  <div class="page-header">
-      <% include ../helpers/navbar %>
-    <h1>YOYO web apps are so cool</h1>
-  </div>
+  
 
-  <p id="demo">
-    This is me testing out a lil html file
-  </p>
-
-  <button class="btn btn-default" type="button" onclick="myFunction()">
-    Try it
-  </button>
-
-  <div id="doge-image"/>
+   <form class="form-signin">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <!-- <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label> -->
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+       <br> 
+       <h1 class="h3 mb-3 font-weight-normal">Or </h1>
+       <a href="#" class="google btn" onclick="handleSignIn()">
+          <i class="fa fa-google fa-fw" ></i> Login with Google
+        </a>
+      
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>  
     
-    <button onclick="handleSignIn()">Login</button>
-
+    
+    
+    <!-- <form onsubmit="handleMessageFormSubmit()" action="#">
+    Title: <br>
+        <input id="post-title"><br>
+        <textarea id="post-body"></textarea>
+        <button>Submit</button>
+    
+    </form> 
+    -->
 </body>
 
 </html>

@@ -6,7 +6,8 @@ function handleSignIn(){
   // The signed-in user info.
   var user = result.user;
             console.log(user.email());
-  // ...
+  // Redirect on success
+            window.location.href = "/about";
             
 }).catch(function(error) {
   // Handle Errors here.
@@ -20,15 +21,32 @@ function handleSignIn(){
 });
 }
 
-
-
-function myFunction() {
-  // use jQuery ($ is shorthand) to find the div on the page and then change the html
-  // jQuery can do a lot of crazy stuff so make sure to google around to find out more
-
-  $("#demo").html("NEWWW PARAGRAPH #javascript #fire");
-
-  // 'img-circle' is a bootstrap thing! Check out more here: http://getbootstrap.com/css/
-  $("#doge-image").append(`<img class="img-circle" src="images/wowdoge.jpeg" />`);
+function addMessage(postBody, postTitle) {
+    var postData = {
+        title: postTitle,
+        body: postBody,
+        
+    }
+    
+    // Get a reference to the database service
+    var database = firebase.database().ref("posts");
+    
+    var newPostRef = database.push();
+    newPostRef.set(postData, function(error) {
+    if (error) {
+      // The write failed...
+    } else {
+        window.location.reload();
+      // Data saved successfully!
+    }
+  });
+    
 }
 
+function handleMessageFormSubmit(){
+    var postTitle = $("#post-title").val();
+    var postBody = $("#post-body").val();
+    
+addMessage(postBody, postTitle);    
+    
+}
